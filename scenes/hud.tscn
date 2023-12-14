@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://mbrkaq4fo0lp"]
+[gd_scene load_steps=6 format=3 uid="uid://mbrkaq4fo0lp"]
 
 [ext_resource type="FontFile" uid="uid://dbuiav6ay43jr" path="res://fonts/Xolonium-Regular.ttf" id="1_ccmln"]
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_xjkjj"]
+[ext_resource type="Texture2D" uid="uid://eflt3feothop" path="res://art/arrow.png" id="3_d5ubl"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_o0bu7"]
 action = &"start_game"
@@ -65,6 +66,41 @@ text = "Start"
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="RightTouch" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
+position = Vector2(350, 428)
+rotation = -1.5708
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("3_d5ubl")
+action = "move_right"
+visibility_mode = 1
+
+[node name="LeftTouch" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
+position = Vector2(130, 300)
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("3_d5ubl")
+action = "move_left"
+visibility_mode = 1
+
+[node name="UpTouch" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
+position = Vector2(308, 280)
+rotation = 3.14159
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("3_d5ubl")
+action = "move_up"
+visibility_mode = 1
+
+[node name="DownTouch" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.352941)
+position = Vector2(180, 440)
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("3_d5ubl")
+action = "move_down"
+visibility_mode = 1
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
